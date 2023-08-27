@@ -15,11 +15,15 @@ function displayEmojiName(array) {
     return emojiEntry.name;
   });
 }
-//Filter by Meaning Length: Use the filter method to create a new array of emojis with meanings
-//shorter than a certain character count (e.g., less than 50 characters).
-// Export the functions
-//Count Emojis: Use the reduce method to count the number of emojis in the array.
+//Filter by Meaning Length: Use the filter method to create a new array of emojis with meanings //shorter than a certain character count (e.g., less than 50 characters).
+
+function filterEmoji(array) {
+  return array.filter(function (emojiEntry) {
+    return emojiEntry.meaning.length < 50;
+  });
+}
 //Alphabetical Sorting: Sort the emojis alphabetically based on their names using the sort method.
+
 //Group Emojis by First Letter: Group the emojis by the first letter of their names using the reduce method.
 //Search by Emoji Name: Implement a search functionality where the user can input a search term, and display the emojis whose names contain the search term.
 //Display Emoji Categories: Create categories for the emojis (e.g., Smileys, People, Objects) based on keywords in their meanings. Then, display the emojis within each category.
@@ -28,4 +32,6 @@ function displayEmojiName(array) {
 //Calculate Average Meaning Length: Calculate the average length of all the emoji meanings using the reduce method.
 //Display IDs and Emojis: Display a list of IDs and corresponding emojis from the array.
 //Find Longest Emoji Name: Find the emoji with the longest name using the reduce method.
-export { extractMeanings, displayEmojiName };
+
+// Export the functions
+export { extractMeanings, displayEmojiName, filterEmoji };
