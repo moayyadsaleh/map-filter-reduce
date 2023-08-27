@@ -1,33 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import emojipedia from "./components/emojipedia";
+import Content from "./App";
 
-var numbers = [3, 56, 2, 48, 5];
+//Create a new array that just has the meaning text and truncate the meaning text so that it has a maximum of 100 chars.
 
-//Map -Create a new array by doing something with each item in an array.
-const newNumbers = numbers.map(function (x) {
-  return x * 2;
-});
-console.log(newNumbers);
-//Filter - Create a new array by keeping the items that return true.
-const newNumbersFiltered = numbers.filter(function (num) {
-  return num > 10;
-});
-console.log(newNumbersFiltered);
-//Reduce - Accumulate a value by doing something to each item in an array.
-var newReducedNumbers = numbers.reduce(function (accumulator, currentNumber) {
-  return (accumulator += currentNumber);
-});
-console.log(newReducedNumbers);
-//Find - find the first item that matches from an array.
-const foundNumber = numbers.find(function (num) {
-  return num > 10;
-});
-console.log(foundNumber);
-//FindIndex - find the index of the first item that matches.
-const foundNumberIndex = numbers.findIndex(function (num) {
-  return num > 10;
-});
+function extractMeanings(array) {
+  return array.map(function (entry) {
+    return entry.meaning.substring(0, 100);
+  });
+}
 
-console.log(foundNumberIndex);
+const extractedMeanings = extractMeanings(emojipedia); // Pass emojipedia array to the function
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render();
+root.render(<extractMeanings />);
